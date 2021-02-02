@@ -37,7 +37,7 @@ def smtp_connection():
     smtp_connection = smtplib.SMTP("smtp.gmail.com", 587, timeout=5)
     yield smtp_connection  # provide the fixture value
     print("teardown smtp")
-    smtp_connection.close()
+    smtp_connection.close()  # On ferme la connection lorsque la fixture disparait, ici à la fin du module
 
 
 def test_ehlo(smtp_connection, monkeypatch):
@@ -76,7 +76,7 @@ def test_raise_exception(monkeypatch):
     monkeypatch.delenv("USER", raising=False)
 
     with pytest.raises(OSError):
-        _ = get_os_user_lower()
+        _ = get_os_user_lower()  # _ (underscore) est utilisé comme variable poubelle (dummy)
 
 
 # Exemple 4: les mêmes tests réécrits avec des fixtures
@@ -111,6 +111,3 @@ def test_upper_to_lower(mock_env_user):
 def test_raise_exception(mock_env_missing):
     with pytest.raises(OSError):
         _ = get_os_user_lower()
-
-
-

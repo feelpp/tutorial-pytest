@@ -54,4 +54,4 @@ def get(data, index, default=None):
 # Soit on inclut ces lignes de codes
      #import doctest
      #doctest.testmod()
-# Soit on fait tourner les doctests avec
+# Soit on fait tourner les doctests avec "python -m doctest" ou "python -m doctest -v" en mode verbeux
