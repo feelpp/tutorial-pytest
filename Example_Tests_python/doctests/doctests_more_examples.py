@@ -6,13 +6,15 @@ def greet(msg):
 
     Attention au formattage
     Exemples:
-
-        >>> greet("Coucou c'est moi")
+        # Échoue
+        >>> greet("Coucou c'est moi") # doctest: +SKIP
         "Coucou c'est moi"
 
-        >>> greet("Coucou c'est encore moi!!!")
+        # Échoue
+        >>> greet("Coucou c'est encore moi!!!") # doctest: +SKIP
         'Coucou c'est moi'
 
+        # Réussi
         >>> greet("Coucou")
         Coucou
 
@@ -25,10 +27,10 @@ def greet(msg):
 class MyClass:
     pass
 
-def unpredictable(obj):
+def unpredictable_failed(obj):
     """Returns a new list containing obj.
 
-    >>> unpredictable(MyClass())
+    >>> unpredictable_failed(MyClass()) # doctest: +SKIP
     [<doctests_more_examples.MyClass object at 0x7f13af17bf60>]
     """
     return [obj]
@@ -91,7 +93,7 @@ def this_raises():
 def double_space_failed(lines):
     """Prints a list of lines double-spaced.
 
-    >>> double_space_failed(['Line one.', 'Line two.'])
+    >>> double_space_failed(['Line one.', 'Line two.']) # doctest: +SKIP
     Line one.
 
     Line two.

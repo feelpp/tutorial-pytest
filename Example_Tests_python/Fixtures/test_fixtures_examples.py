@@ -22,14 +22,12 @@ def test_get(simple_comme_bonjour):
     # plus besoin de définir les données du test!!
     element = get(simple_comme_bonjour, 0)
     assert element == 'pomme'
-    assert 0
 
 
 def test_element_manquant(simple_comme_bonjour):
     # plus besoin de définir les données du test!!
     element = get(simple_comme_bonjour, 1000, 'Je laisse la main')
     assert element == 'Je laisse la main'
-    assert 0
 
 
 # Exemple 2
@@ -44,7 +42,6 @@ def test_ehlo(smtp_connection):
     response, msg = smtp_connection.ehlo()  # on se connecte au serveur, ehlo() récupère un message de bienvenue et un code de retour
     print(msg)
     assert response == 250  # code réponse retourné par le serveur mail
-    assert 0  # pour la démo
 
 
 # Exemple trois, bien choisir la portée des fixtures
@@ -60,13 +57,11 @@ def test_ehlo(smtp_connection):
     response, msg = smtp_connection.ehlo()
     assert response == 250
     assert b"smtp.gmail.com" in msg
-    assert 0  # for demo purposes
 
 
 def test_noop(smtp_connection):
     response, msg = smtp_connection.noop()
     assert response == 250
-    assert 0  # for demo purposes
 
 
 # Exemple: fixture tmp_path: permet de créer un dossier temporaire
@@ -83,11 +78,10 @@ def test_create_file(tmp_path):
     print("voici le chemin du fichier \n", p) # Pour être explicite
     p.write_text(CONTENT)
     assert p.read_text() == CONTENT # le contenue de tmp_path/sub_dir/hello.txt est bien CONTENT
-    assert len(list(tmp_path.iterdir())) == 1 # Un seul dossier à été créé!!
-    assert 0
+    assert len(list(tmp_path.iterdir())) == 1 # Un seul dossier à été créé!
 
 
-# Exemple capsys (permet de capturer les sorties standards et d'erreurs)
+# Exemple capsys (permet de capturer les sorties standards et d'erreurs produits par le code testé)
 
 import sys
 
@@ -107,4 +101,3 @@ def test_myoutput(capsys):
     out, err = capsys.readouterr()
     assert out == "Deuxieme message de démo\n"
     assert err == ""
-    assert 0

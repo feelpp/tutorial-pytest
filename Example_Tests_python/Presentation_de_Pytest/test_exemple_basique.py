@@ -1,17 +1,17 @@
 from mon_module.module_demo import inc, div
+import pytest
 
-
+@pytest.mark.xfail
 def test_failed():
     assert inc(3) == 5
 
 
 def test_succeed():
-    print("Coucou, c'est le test qui parle!!!") # demo de pytest -s
+    print("Coucou, c'est le test qui parle!!!") # demo de pytest -s, l'option -s permet de récupérer les sorties standards du test
     assert inc(3) == 4
 
 
 # Tester qu'un code soulève une exception
-
 
 import pytest
 
@@ -24,22 +24,24 @@ def test_div_by_zero():
 # Exemples additionnels
 # Illustration du mécanisme d'introspection des assertions
 
+@pytest.mark.xfail
 def test_set_comparison():
     set1 = set("1308")
     set2 = set("8035")
     assert set1 == set2
 
-
+@pytest.mark.xfail
 def test_eq_similar_text():
     assert "foo 1 bar" == "foo 2 bar"
 
 # Exemples supplémentaires de tests échouants
 
+@pytest.mark.xfail
 def test_not_div():
     assert not div(10, 2)
 
-
+@pytest.mark.xfail
 def test_eq_list():
-    assert [0,4, 1, 2] == [0, 1, 3]
+    assert [0, 4, 1, 2] == [0, 1, 3]
 
 # Pour plus d'exemples, voir https://docs.pytest.org/en/latest/example/reportingdemo.html

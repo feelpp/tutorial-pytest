@@ -27,6 +27,7 @@ class TestDiv:
     def test_div_ok(self):
         assert div(self.d, self.c) == 2.5
 
+    @pytest.mark.xfail # marque le test comme échouant obligatoirement
     def test_div_not_ok(self):
         assert div(self.d, self.c) == 3.5
 
@@ -51,6 +52,8 @@ def test_8():
 def test_sept():
     b = 9
     assert inc(b) == 10
+
+# Note: on peut aussi marquer une classe, auquel cas tous les tests de la classe sont executés
 
 # Pour éviter les warning il faudrait enregistrer les markers dans pytests.ini:
 # Voir: https://stackoverflow.com/questions/60806473/pytestunknownmarkwarning-unknown-pytest-mark-xxx-is-this-a-typo

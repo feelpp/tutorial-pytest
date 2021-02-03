@@ -28,6 +28,7 @@ def test_element_manquant(simple_comme_bonjour):
     element = get(simple_comme_bonjour, 1000, 'Je laisse la main')
     assert element == 'Je laisse la main'
 
+@pytest.mark.xfail
 def test_avec_echec(simple_comme_bonjour):
     element = get(simple_comme_bonjour, 1000, 'Je laisse la main')
     assert element == 'Je tres clair, Luc'
@@ -48,10 +49,8 @@ def test_ehlo(smtp_connection):
     assert response == 250
     #assert b"smtp.gmail.com" in msg
     assert b"smtp.gmail.com" in msg
-    assert 0  # for demo purposes
 
 
 def test_noop(smtp_connection):
     response, msg = smtp_connection.noop()
     assert response == 250
-    assert 0  # for demo purposes

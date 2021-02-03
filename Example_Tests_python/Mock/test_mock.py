@@ -26,9 +26,8 @@ def test_getssh(monkeypatch):
     # Calling getssh() will use mockreturn in place of Path.home
     # for this test with the monkeypatch.
     x = getssh()
-    #print("\n This is the path of the monkeypatched .ssh folder: ", x) # for demo purpose
+    print("\n This is the path of the monkeypatched .ssh folder: ", x) # for demo purpose, can be printed with "pytest -s" option
     assert x == Path("/fakeuser/.ssh")
-    assert 0
 
 # Exemple 2: on évite de se connecter au serveur!!
 
@@ -48,8 +47,7 @@ def test_ehlo(smtp_connection, monkeypatch):
 
     response, msg = smtp_connection.ehlo()
     assert b"Faux message" in msg # et non plus smtp.google.com
-    assert response == 356 # et non plus 250!!!
-    assert 0  # for demo purposes
+    assert response == 356 # et non plus 250!
 
 
 # Exemple 3: setitem, delitem ...
