@@ -1,0 +1,41 @@
+:feelpp: Feel++
+= Quelques exemples pour bien débuter avec pytest
+Yannick Stoll <https://github.com/ystoll>;
+:man-linkstyle: pass:[blue R < >]
+:toc:
+
+== Introduction
+Pytest est actuellement l'outil de choix pour bien tester son code avec python.
+Le framework présentent plusieurs avantages:
+
+* Les tests sont découverts automatiquement.
+* Pytest propose un riche mécanisme d'introspection: lorsqu'un test échoue, énormément d'informations utiles au débogage sont donnés à l'utilisateur.
+* Pytest est aisément paramétrable et propose un mécanisme de _fixtures_ qui permet de facilement injecter des dépendances dans les tests, de créer des tests paramétrés et bien d'autres choses...
+
+=== Avertissement:
+Ce dépôt ne prétend en aucun cas faire le tour de l'utilisation de pytest. *Les quelques exemples décrits ici ne sauraient donc couvrir de manière exhaustive toutes les possibilités de pytest*.
+L'idée est plutôt de donner un point d'entrée permettant à l'utilisateur intéressé de s'initier au framework.
+
+On ne manquera donc pas de se référer à la documentation officielle de pytest, disponible à l'adresse suivante: <https://docs.pytest.org/en/stable/>
+
+== Usage basique
+Afin de lancer l'intégralité des tests, on lancera la commande suivante:
+----
+$ pytest
+----
+Cela devrait lancer tous les exemples de tests qui sont dans ce dépôt.
+Davantage d'informations peuvent être demandé avec l'option -v:
+----
+$ pytest -v
+----
+
+=== Remarques:
+* Certains tests échouent. Afin de ne pas bloquer pytest, ceux-ci sont marqués avec le décorateur @pytest.mark.xfail. Ne pas hésiter à commenter l'un de ces décorateurs pour avoir le détail de l'erreur.
+* De même, n'importe quel test peut rendu faux en ajoutant `` assert 0 `` à la fin du test. Cela permet d'avoir le détail du test dans le rapport de pytest.
+
+
+== Quelques options utiles
+
+
+
+== Fichier pytest.ini
